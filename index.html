@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Gestor Académico</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="container">
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <h2>Gestor Académico</h2>
+        <ul>
+            <li>📚 Materias</li>
+            <li>📝 Tareas</li>
+            <li>📅 Exámenes</li>
+            <li>📊 Dashboard</li>
+        </ul>
+    </aside>
+
+    <!-- Main -->
+    <main class="main">
+
+        <h1>Dashboard</h1>
+
+        <!-- Tarjetas resumen -->
+        <div class="cards">
+            <div class="card blue">
+                <h3>Materias</h3>
+                <p>5</p>
+            </div>
+
+            <div class="card orange">
+                <h3>Tareas Pendientes</h3>
+                <p>7</p>
+            </div>
+
+            <div class="card yellow">
+                <h3>Próximas Entregas</h3>
+                <p>2</p>
+            </div>
+
+            <div class="card red">
+                <h3>Exámenes Cercanos</h3>
+                <p>1</p>
+            </div>
+        </div>
+
+        <!-- Progreso -->
+        <div class="progress-container">
+            <h2>Progreso General</h2>
+            <div class="progress-bar">
+                <div class="progress" style="width: 50%;">50%</div>
+            </div>
+        </div>
+
+        <!-- Sección inferior -->
+        <div class="bottom">
+
+            <div class="tasks">
+                <h2>Lista de Tareas</h2>
+
+                <div class="task">
+                    <span>📘 Leer capítulo 4 - Historia</span>
+                    <span class="badge yellow-badge">Faltan 2 días</span>
+                </div>
+
+                <div class="task">
+                    <span>📕 Ejercicios de Física</span>
+                    <span class="badge red-badge">Falta 1 día</span>
+                </div>
+
+                <div class="task">
+                    <span>📗 Practicar inglés</span>
+                    <span class="badge green-badge">Faltan 3 días</span>
+                </div>
+
+            </div>
+
+            <div class="exams">
+                <h2>Próximos Exámenes</h2>
+
+                <div class="exam">
+                    📐 Matemáticas - 15/05/2024
+                </div>
+
+                <div class="exam">
+                    📖 Historia - 13/05/2024
+                </div>
+
+            </div>
+
+        </div>
+
+    <!-- BOTONES DE ACCESO RÁPIDO -->
+    <div class="quick-access">
+        <a href="materias.html" class="quick-btn">+ Nueva Materia</a>
+        <a href="tareas.html" class="quick-btn">+ Nueva Tarea</a>
+        <a href="examenes.html" class="quick-btn">+ Nuevo Examen</a>
+    </div>
+
+    </main>
+</div>
+
+</body>
+</html>

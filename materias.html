@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Materias</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="container">
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <h2>Gestor Académico</h2>
+        <ul>
+            <li><a href="index.html">📊 Dashboard</a></li>
+            <li><a href="materias.html">📚 Materias</a></li>
+            <li><a href="tareas.html">📝 Tareas</a></li>
+            <li><a href="examenes.html">📅 Exámenes</a></li>
+        </ul>
+    </aside>
+
+    <!-- Main -->
+    <main class="main">
+
+        <h1>Gestión de Materias</h1>
+
+        <!-- Formulario -->
+        <div class="form">
+            <input type="text" id="nombreMateria" placeholder="Nombre de la materia">
+            <input type="text" id="profesor" placeholder="Profesor">
+            <button onclick="agregarMateria()">Agregar</button>
+        </div>
+
+        <!-- Lista -->
+        <div id="listaMaterias"></div>
+
+    </main>
+
+</div>
+
+<script>
+let materias = JSON.parse(localStorage.getItem("materias")) || [];
+
+function guardarMaterias() {
+    localStorage.setItem("materias", JSON.stringify(materias));
+}
+
+function mostrarMaterias() {
+    const lista = document.getElementById("listaMaterias");
+    lista.innerHTML = "";
+
+    materias.forEach((materia, index) => {
+        lista.innerHTML += `
+            <div class="item">
+                📚 <strong>${materia.nombre}</strong> - ${materia.profesor}
+                <button onclick="eliminarMateria(${index})">❌</button>
+            </div>
+        `;
+    });
+}
+
+function agregarMateria() {
+    const nombre = document.getElementById("nombreMateria").value;
+    const profesor = document.getElementById("profesor").value;
+
+    if (nombre === "" || profesor === "") {
+        alert("Completa todos los campos");
+        return;
+    }
+
+    materias.push({ nombre, profesor });
+    guardarMaterias();
+    mostrarMaterias();
+
+    document.getElementById("nombreMateria").value = "";
+    document.getElementById("profesor").value = "";
+}
+
+function eliminarMateria(index) {
+    materias.splice(index, 1);
+    guardarMaterias();
+    mostrarMaterias();
+}
+
+mostrarMaterias();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Tareas</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="container">
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <h2>Gestor Académico</h2>
+        <ul>
+            <li><a href="index.html">📊 Dashboard</a></li>
+            <li><a href="materias.html">📚 Materias</a></li>
+            <li><a href="tareas.html">📝 Tareas</a></li>
+            <li><a href="examenes.html">📅 Exámenes</a></li>
+        </ul>
+    </aside>
+
+    <!-- Main -->
+    <main class="main">
+
+        <h1>Gestión de Tareas</h1>
+
+        <!-- Formulario -->
+        <div class="form">
+            <input type="text" id="nombreTarea" placeholder="Nombre de la tarea">
+            <input type="text" id="materiaTarea" placeholder="Materia">
+            <input type="date" id="fechaTarea">
+            <button onclick="agregarTarea()">Agregar</button>
+        </div>
+
+        <!-- Lista -->
+        <div id="listaTareas"></div>
+
+    </main>
+
+</div>
+
+<script>
+let tareas = JSON.parse(localStorage.getItem("tareas")) || [];
+
+function guardarTareas() {
+    localStorage.setItem("tareas", JSON.stringify(tareas));
+}
+
+function mostrarTareas() {
+    const lista = document.getElementById("listaTareas");
+    lista.innerHTML = "";
+
+    tareas.forEach((tarea, index) => {
+        lista.innerHTML += `
+            <div class="item">
+                📝 <strong>${tarea.nombre}</strong> - ${tarea.materia} 
+                <br> 📅 Entrega: ${tarea.fecha}
+                <button onclick="eliminarTarea(${index})">❌</button>
+            </div>
+        `;
+    });
+}
+
+function agregarTarea() {
+    const nombre = document.getElementById("nombreTarea").value;
+    const materia = document.getElementById("materiaTarea").value;
+    const fecha = document.getElementById("fechaTarea").value;
+
+    if (nombre === "" || materia === "" || fecha === "") {
+        alert("Completa todos los campos");
+        return;
+    }
+
+    tareas.push({ nombre, materia, fecha });
+    guardarTareas();
+    mostrarTareas();
+
+    document.getElementById("nombreTarea").value = "";
+    document.getElementById("materiaTarea").value = "";
+    document.getElementById("fechaTarea").value = "";
+}
+
+function eliminarTarea(index) {
+    tareas.splice(index, 1);
+    guardarTareas();
+    mostrarTareas();
+}
+
+mostrarTareas();
+</script>
+
+</body>
+</html>

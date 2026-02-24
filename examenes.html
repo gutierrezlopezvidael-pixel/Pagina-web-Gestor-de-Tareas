@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Exámenes</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="container">
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <h2>Gestor Académico</h2>
+        <ul>
+            <li><a href="index.html">📊 Dashboard</a></li>
+            <li><a href="materias.html">📚 Materias</a></li>
+            <li><a href="tareas.html">📝 Tareas</a></li>
+            <li><a href="examenes.html">📅 Exámenes</a></li>
+        </ul>
+    </aside>
+
+    <!-- Main -->
+    <main class="main">
+
+        <h1>Gestión de Exámenes</h1>
+
+        <!-- Formulario -->
+        <div class="form">
+            <input type="text" id="nombreExamen" placeholder="Nombre del examen">
+            <input type="text" id="materiaExamen" placeholder="Materia">
+            <input type="date" id="fechaExamen">
+            <button onclick="agregarExamen()">Agregar</button>
+        </div>
+
+        <!-- Lista -->
+        <div id="listaExamenes"></div>
+
+    </main>
+
+</div>
+
+<script>
+let examenes = JSON.parse(localStorage.getItem("examenes")) || [];
+
+function guardarExamenes() {
+    localStorage.setItem("examenes", JSON.stringify(examenes));
+}
+
+function mostrarExamenes() {
+    const lista = document.getElementById("listaExamenes");
+    lista.innerHTML = "";
+
+    examenes.forEach((examen, index) => {
+        lista.innerHTML += `
+            <div class="item">
+                📅 <strong>${examen.nombre}</strong> - ${examen.materia}
+                <br> 🗓 Fecha: ${examen.fecha}
+                <button onclick="eliminarExamen(${index})">❌</button>
+            </div>
+        `;
+    });
+}
+
+function agregarExamen() {
+    const nombre = document.getElementById("nombreExamen").value;
+    const materia = document.getElementById("materiaExamen").value;
+    const fecha = document.getElementById("fechaExamen").value;
+
+    if (nombre === "" || materia === "" || fecha === "") {
+        alert("Completa todos los campos");
+        return;
+    }
+
+    examenes.push({ nombre, materia, fecha });
+    guardarExamenes();
+    mostrarExamenes();
+
+    document.getElementById("nombreExamen").value = "";
+    document.getElementById("materiaExamen").value = "";
+    document.getElementById("fechaExamen").value = "";
+}
+
+function eliminarExamen(index) {
+    examenes.splice(index, 1);
+    guardarExamenes();
+    mostrarExamenes();
+}
+
+mostrarExamenes();
+</script>
+
+</body>
+</html>
