@@ -1,90 +1,94 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <title>Materias</title>
-    <link rel="stylesheet" href="styles.css">
+<meta charset="UTF-8">
+<title>Materias</title>
+<link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
 
 <div class="container">
 
-    <!-- Sidebar -->
-    <aside class="sidebar">
-        <h2>Gestor Académico</h2>
-        <ul>
-            <li><a href="index.html">📊 Dashboard</a></li>
-            <li><a href="materias.html">📚 Materias</a></li>
-            <li><a href="tareas.html">📝 Tareas</a></li>
-            <li><a href="examenes.html">📅 Exámenes</a></li>
-        </ul>
-    </aside>
+<!-- Sidebar -->
+<aside class="sidebar">
+<h2>Gestor Académico</h2>
 
-    <!-- Main -->
-    <main class="main">
+<ul>
+<li><a href="index.html">📊 Inicio</a></li>
+<li><a href="materias.html">📚 Materias</a></li>
+<li><a href="tareas.html">📝 Tareas</a></li>
+<li><a href="examenes.html">📅 Exámenes</a></li>
+</ul>
 
-        <h1>Gestión de Materias</h1>
+</aside>
 
-        <!-- Formulario -->
-        <div class="form">
-            <input type="text" id="nombreMateria" placeholder="Nombre de la materia">
-            <input type="text" id="profesor" placeholder="Profesor">
-            <button onclick="agregarMateria()">Agregar</button>
-        </div>
 
-        <!-- Lista -->
-        <div id="listaMaterias"></div>
+<!-- Main -->
+<main class="main">
 
-    </main>
+<div class="top-bar">
+<button class="menu-toggle" onclick="toggleMenu()">☰</button>
+<h1>Gestión de Materias</h1>
+</div>
+
+
+<div class="tareas-layout">
+
+<!-- FORMULARIO -->
+<div class="form-section">
+
+<h2>➕ Nueva materia</h2>
+
+<div class="form">
+
+<label>Nombre de la materia</label>
+<input type="text" id="nombreMateria" placeholder="Ej: Programación">
+
+<label>Profesor</label>
+<input type="text" id="profesorMateria" placeholder="Nombre del profesor">
+
+<label>Aula</label>
+<input type="text" id="aulaMateria" placeholder="Ej: B203">
+
+<label>Día de clase</label>
+<select id="diaMateria">
+<option value="Lunes">Lunes</option>
+<option value="Martes">Martes</option>
+<option value="Miércoles">Miércoles</option>
+<option value="Jueves">Jueves</option>
+<option value="Viernes">Viernes</option>
+</select>
+
+<label>Horario</label>
+<input type="time" id="horaMateria">
+
+<label>Color de la materia</label>
+<input type="color" id="colorMateria">
+
+<button onclick="agregarMateria()">Agregar materia</button>
 
 </div>
 
-<script>
-let materias = JSON.parse(localStorage.getItem("materias")) || [];
+</div>
 
-function guardarMaterias() {
-    localStorage.setItem("materias", JSON.stringify(materias));
-}
 
-function mostrarMaterias() {
-    const lista = document.getElementById("listaMaterias");
-    lista.innerHTML = "";
+<!-- LISTA -->
+<div class="lista-section">
 
-    materias.forEach((materia, index) => {
-        lista.innerHTML += `
-            <div class="item">
-                📚 <strong>${materia.nombre}</strong> - ${materia.profesor}
-                <button onclick="eliminarMateria(${index})">❌</button>
-            </div>
-        `;
-    });
-}
+<h2>📚 Materias registradas</h2>
 
-function agregarMateria() {
-    const nombre = document.getElementById("nombreMateria").value;
-    const profesor = document.getElementById("profesor").value;
+<div id="listaMaterias"></div>
 
-    if (nombre === "" || profesor === "") {
-        alert("Completa todos los campos");
-        return;
-    }
+</div>
 
-    materias.push({ nombre, profesor });
-    guardarMaterias();
-    mostrarMaterias();
+</div>
 
-    document.getElementById("nombreMateria").value = "";
-    document.getElementById("profesor").value = "";
-}
+</main>
 
-function eliminarMateria(index) {
-    materias.splice(index, 1);
-    guardarMaterias();
-    mostrarMaterias();
-}
+</div>
 
-mostrarMaterias();
-</script>
+<script src="app.js"></script>
 
 </body>
 </html>

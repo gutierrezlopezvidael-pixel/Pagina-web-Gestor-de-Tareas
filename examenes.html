@@ -9,11 +9,11 @@
 
 <div class="container">
 
-    <!-- Sidebar -->
+       <!-- Sidebar -->
     <aside class="sidebar">
         <h2>Gestor Académico</h2>
         <ul>
-            <li><a href="index.html">📊 Dashboard</a></li>
+            <li><a href="index.html">📊 Inicio</a></li>
             <li><a href="materias.html">📚 Materias</a></li>
             <li><a href="tareas.html">📝 Tareas</a></li>
             <li><a href="examenes.html">📅 Exámenes</a></li>
@@ -23,7 +23,10 @@
     <!-- Main -->
     <main class="main">
 
-        <h1>Gestión de Exámenes</h1>
+      <div class="top-bar">
+    <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+    <h1>Gestion de Examenes</h1>
+</div>
 
         <!-- Formulario -->
         <div class="form">
@@ -40,55 +43,6 @@
 
 </div>
 
-<script>
-let examenes = JSON.parse(localStorage.getItem("examenes")) || [];
-
-function guardarExamenes() {
-    localStorage.setItem("examenes", JSON.stringify(examenes));
-}
-
-function mostrarExamenes() {
-    const lista = document.getElementById("listaExamenes");
-    lista.innerHTML = "";
-
-    examenes.forEach((examen, index) => {
-        lista.innerHTML += `
-            <div class="item">
-                📅 <strong>${examen.nombre}</strong> - ${examen.materia}
-                <br> 🗓 Fecha: ${examen.fecha}
-                <button onclick="eliminarExamen(${index})">❌</button>
-            </div>
-        `;
-    });
-}
-
-function agregarExamen() {
-    const nombre = document.getElementById("nombreExamen").value;
-    const materia = document.getElementById("materiaExamen").value;
-    const fecha = document.getElementById("fechaExamen").value;
-
-    if (nombre === "" || materia === "" || fecha === "") {
-        alert("Completa todos los campos");
-        return;
-    }
-
-    examenes.push({ nombre, materia, fecha });
-    guardarExamenes();
-    mostrarExamenes();
-
-    document.getElementById("nombreExamen").value = "";
-    document.getElementById("materiaExamen").value = "";
-    document.getElementById("fechaExamen").value = "";
-}
-
-function eliminarExamen(index) {
-    examenes.splice(index, 1);
-    guardarExamenes();
-    mostrarExamenes();
-}
-
-mostrarExamenes();
-</script>
-
+<script src="app.js"></script>
 </body>
 </html>

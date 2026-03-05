@@ -13,17 +13,20 @@
     <aside class="sidebar">
         <h2>Gestor Académico</h2>
         <ul>
-            <li>📚 Materias</li>
-            <li>📝 Tareas</li>
-            <li>📅 Exámenes</li>
-            <li>📊 Dashboard</li>
+            <li><a href="index.html">📊 Inicio</a></li>
+            <li><a href="materias.html">📚 Materias</a></li>
+            <li><a href="tareas.html">📝 Tareas</a></li>
+            <li><a href="examenes.html">📅 Exámenes</a></li>
         </ul>
     </aside>
 
     <!-- Main -->
     <main class="main">
 
-        <h1>Dashboard</h1>
+    <div class="top-bar">
+    <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+    <h1>Dashboard</h1>
+</div>
 
         <!-- Tarjetas resumen -->
         <div class="cards">
@@ -103,6 +106,8 @@
 
     </main>
 </div>
+
+<script src="app.js"></script>
 
 </body>
 </html>

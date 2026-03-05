@@ -20,6 +20,13 @@ body {
     color: white;
     padding: 20px;
     min-height: 100vh;
+    transition: 0.3s;
+}
+
+.sidebar.hidden {
+    width: 0;
+    padding: 0;
+    overflow: hidden;
 }
 
 .sidebar h2 {
@@ -39,6 +46,11 @@ body {
 .main {
     flex: 1;
     padding: 30px;
+    transition: margin-left 0.3s ease;
+}
+
+.main.full {
+    margin-left: -220px;
 }
 
 .cards {
@@ -171,3 +183,126 @@ body {
     border-radius: 6px;
     cursor: pointer;
 }
+
+/* Barra superior */
+.top-bar {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+/* Botón del menú */
+.menu-toggle {
+    font-size: 22px;
+    background: #2c3e50;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.menu-toggle:hover {
+    background: #1a252f;
+}
+
+/* FORMULARIO MEJORADO */
+
+.form {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+}
+
+.form input,
+.form select,
+.form textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0 15px 0;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+}
+
+.form textarea {
+    resize: vertical;
+    height: 80px;
+}
+
+.form label {
+    font-weight: bold;
+}
+
+.form button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    background: #3498db;
+    color: white;
+    cursor: pointer;
+}
+
+.form button:hover {
+    background: #2980b9;
+}
+
+/* LAYOUT DE TAREAS */
+
+.tareas-layout{
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 30px;
+    margin-top: 20px;
+}
+
+/* SECCION FORMULARIO */
+
+.form-section{
+    background: #ffffff;
+    padding: 25px;
+    border-radius: 12px;
+    border-left: 6px solid #3498db;
+}
+
+/* SECCION LISTA */
+
+.lista-section{
+    background: #ffffff;
+    padding: 25px;
+    border-radius: 12px;
+    border-left: 6px solid #2ecc71;
+}
+
+/* TARJETAS DE TAREAS */
+
+#listaTareas .item{
+    background: #f8f9fb;
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-left: 5px solid #3498db;
+    transition: 0.2s;
+}
+
+#listaTareas .item:hover{
+    transform: scale(1.02);
+}
+
+/* BOTON ELIMINAR */
+
+#listaTareas button{
+    background: #e74c3c;
+    border: none;
+    color: white;
+    padding: 6px 10px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+#listaTareas button:hover{
+    background: #c0392b;
+}
+
