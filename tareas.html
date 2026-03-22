@@ -9,7 +9,7 @@
 
 <div class="container">
 
-      <!-- Sidebar -->
+    <!-- Sidebar -->
     <aside class="sidebar">
         <h2>Gestor Académico</h2>
         <ul>
@@ -23,67 +23,68 @@
     <!-- Main -->
     <main class="main">
 
-    <div class="top-bar">
-        <button class="menu-toggle" onclick="toggleMenu()">☰</button>
-        <h1>Gestión de Tareas</h1>
-    </div>
+        <div class="top-bar">
+            <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+            <h1>Gestión de Tareas</h1>
+        </div>
 
-    <div class="tareas-layout">
+        <div class="tareas-layout">
 
-        <!-- FORMULARIO -->
-        <div class="form-section">
+            <!-- FORMULARIO -->
+            <div class="form-section">
 
-            <h2>➕ Nueva tarea</h2>
+                <h2>➕ Nueva tarea</h2>
 
-            <div class="form">
+                <div class="form">
 
-                <label>Nombre de la tarea</label>
-                <input type="text" id="nombreTarea" placeholder="Ej: Ejercicios de cálculo">
+                    <label>Nombre de la tarea</label>
+                    <input type="text" id="nombreTarea" placeholder="Ej: Ejercicios de cálculo">
 
-                <label>Materia</label>
-                <input type="text" id="materiaTarea" placeholder="Ej: Matemáticas">
+                    <label>Materia</label>
+                    <!-- 🔥 CAMBIO IMPORTANTE -->
+                    <select id="materiaTarea"></select>
 
-                <label>Descripción</label>
-                <textarea id="descripcionTarea" placeholder="Describe la tarea"></textarea>
+                    <label>Descripción</label>
+                    <textarea id="descripcionTarea" placeholder="Describe la tarea"></textarea>
 
-                <label>Fecha de entrega</label>
-                <input type="date" id="fechaTarea">
+                    <label>Fecha de entrega</label>
+                    <input type="date" id="fechaTarea">
 
-                <label>Hora límite</label>
-                <input type="time" id="horaTarea">
+                    <label>Hora límite</label>
+                    <input type="time" id="horaTarea">
 
-                <label>Prioridad</label>
-                <select id="prioridadTarea">
-                    <option value="Baja">🟢 Baja</option>
-                    <option value="Media">🟡 Media</option>
-                    <option value="Alta">🔴 Alta</option>
-                </select>
+                    <label>Prioridad</label>
+                    <select id="prioridadTarea">
+                        <option value="Baja">🟢 Baja</option>
+                        <option value="Media">🟡 Media</option>
+                        <option value="Alta">🔴 Alta</option>
+                    </select>
 
-                <label>Tipo de tarea</label>
-                <select id="tipoTarea">
-                    <option value="Tarea">📝 Tarea</option>
-                    <option value="Proyecto">📦 Proyecto</option>
-                    <option value="Investigación">📚 Investigación</option>
-                </select>
+                    <label>Tipo de tarea</label>
+                    <select id="tipoTarea">
+                        <option value="Tarea">📝 Tarea</option>
+                        <option value="Proyecto">📦 Proyecto</option>
+                        <option value="Investigación">📚 Investigación</option>
+                    </select>
 
-                <button onclick="agregarTarea()">Agregar tarea</button>
+                    <button onclick="agregarTarea()">Agregar tarea</button>
+
+                </div>
+
+            </div>
+
+            <!-- LISTA -->
+            <div class="lista-section">
+
+                <h2>📋 Tareas registradas</h2>
+
+                <div id="listaTareas"></div>
 
             </div>
 
         </div>
 
-        <!-- LISTA -->
-        <div class="lista-section">
-
-            <h2>📋 Tareas registradas</h2>
-
-            <div id="listaTareas"></div>
-
-        </div>
-
-    </div>
-
-</main>
+    </main>
 
 </div>
 

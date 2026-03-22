@@ -9,7 +9,7 @@
 
 <div class="container">
 
-       <!-- Sidebar -->
+    <!-- Sidebar -->
     <aside class="sidebar">
         <h2>Gestor Académico</h2>
         <ul>
@@ -23,21 +23,62 @@
     <!-- Main -->
     <main class="main">
 
-      <div class="top-bar">
-    <button class="menu-toggle" onclick="toggleMenu()">☰</button>
-    <h1>Gestion de Examenes</h1>
-</div>
-
-        <!-- Formulario -->
-        <div class="form">
-            <input type="text" id="nombreExamen" placeholder="Nombre del examen">
-            <input type="text" id="materiaExamen" placeholder="Materia">
-            <input type="date" id="fechaExamen">
-            <button onclick="agregarExamen()">Agregar</button>
+        <div class="top-bar">
+            <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+            <h1>Gestión de Exámenes</h1>
         </div>
 
-        <!-- Lista -->
-        <div id="listaExamenes"></div>
+        <div class="tareas-layout">
+
+            <!-- FORMULARIO -->
+            <div class="form-section">
+
+                <h2>➕ Nuevo examen</h2>
+
+                <div class="form">
+
+                    <label>Nombre del examen</label>
+                    <input type="text" id="nombreExamen" placeholder="Ej: Examen parcial de cálculo">
+
+                    <label>Materia</label>
+                    <!-- 🔥 CONECTADO A MATERIAS -->
+                    <select id="materiaExamen"></select>
+
+                    <label>Fecha</label>
+                    <input type="date" id="fechaExamen">
+
+                    <label>Hora</label>
+                    <input type="time" id="horaExamen">
+
+                    <label>Tipo de examen</label>
+                    <select id="tipoExamen">
+                        <option value="Parcial">📘 Parcial</option>
+                        <option value="Final">🎓 Final</option>
+                        <option value="Diagnóstico">📊 Diagnóstico</option>
+                    </select>
+
+                    <label>Ubicación</label>
+                    <input type="text" id="ubicacionExamen" placeholder="Ej: Salón A1 / En línea">
+
+                    <label>Temas a estudiar</label>
+                    <textarea id="temasExamen" placeholder="Ej: Integrales, derivadas..."></textarea>
+
+                    <button onclick="agregarExamen()">Agregar examen</button>
+
+                </div>
+
+            </div>
+
+            <!-- LISTA -->
+            <div class="lista-section">
+
+                <h2>📋 Exámenes registrados</h2>
+
+                <div id="listaExamenes"></div>
+
+            </div>
+
+        </div>
 
     </main>
 

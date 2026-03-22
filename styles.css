@@ -306,3 +306,69 @@ body {
     background: #c0392b;
 }
 
+/* ===================== */
+/* ESTADOS DE PRIORIDAD */
+/* ===================== */
+
+.item.alta {
+    border-left: 6px solid #ff4d4d;
+}
+
+.item.media {
+    border-left: 6px solid #ffc107;
+}
+
+.item.baja {
+    border-left: 6px solid #4caf50;
+}
+
+/* ===================== */
+/* TAREA COMPLETADA */
+/* ===================== */
+
+.item.completada {
+    opacity: 0.6;
+    text-decoration: line-through;
+}
+
+/* ===================== */
+/* BOTONES */
+/* ===================== */
+
+.acciones {
+    margin-top: 10px;
+}
+
+.acciones button {
+    margin-right: 5px;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.acciones button:hover {
+    opacity: 0.8;
+}
+
+/* BADGES DE ALERTAS */
+
+.badge {
+    padding: 5px 10px;
+    border-radius: 8px;
+    font-size: 12px;
+    color: white;
+}
+
+.red-badge {
+    background-color: #e74c3c;
+}
+
+.orange-badge {
+    background-color: #e67e22;
+}
+
+.yellow-badge {
+    background-color: #f1c40f;
+    color: black;
+}
